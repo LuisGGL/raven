@@ -1,5 +1,7 @@
 package com.raven.home.di
 
+import com.raven.home.data.local.NewsLocalDataSource
+import com.raven.home.data.local.NewsLocalRepository
 import com.raven.home.data.remote.HomeDataSource
 import com.raven.home.data.remote.HomeRepository
 import dagger.Binds
@@ -9,8 +11,9 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class HomeModule {
+abstract class NewsDataModule {
 
     @Binds
-    abstract fun bindHiringSource(repository: HomeRepository): HomeDataSource
+    abstract fun bindNewsLocalDataSource(repository: NewsLocalRepository): NewsLocalDataSource
+
 }

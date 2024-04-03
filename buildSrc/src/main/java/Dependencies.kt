@@ -17,6 +17,9 @@ import Dependencies.navigationUI
 import Dependencies.okHttp
 import Dependencies.retrofit
 import Dependencies.retrofitConverter
+import Dependencies.room
+import Dependencies.roomCompiler
+import Dependencies.roomRuntime
 import ext.androidTestImplementation
 import ext.implementation
 import ext.kapt
@@ -60,6 +63,13 @@ object Dependencies {
 
     val navigationUI by lazy { "androidx.navigation:navigation-ui-ktx:${Versions.navVersion}" }
     val navigationFragment by lazy { "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}" }
+
+    /** Room **/
+
+    const val room = "androidx.room:room-ktx:${Versions.room}"
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+
 }
 
 /** Dependencies **/
@@ -97,4 +107,10 @@ fun DependencyHandler.di() {
 fun DependencyHandler.navigation() {
     implementation(navigationUI)
     implementation(navigationFragment)
+}
+
+fun DependencyHandler.room() {
+    implementation(room)
+    implementation(roomRuntime)
+    kapt(roomCompiler)
 }

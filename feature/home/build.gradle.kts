@@ -18,6 +18,7 @@ dependencies {
     general()
     testing()
     network()
+    room()
 
     implementation(project(":core"))
 }
