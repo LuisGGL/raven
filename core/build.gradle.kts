@@ -4,6 +4,12 @@ plugins {
 
 android {
     namespace = "com.raven.core"
+
+    dataBinding.enable = true
+
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {

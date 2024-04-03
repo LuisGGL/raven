@@ -1,13 +1,19 @@
 import Dependencies.appCompat
 import Dependencies.coroutines
+import Dependencies.epoxy
+import Dependencies.epoxyDataBinding
+import Dependencies.epoxyProcessor
 import Dependencies.espressoCore
 import Dependencies.extJunit
+import Dependencies.glide
 import Dependencies.gson
 import Dependencies.hilt
 import Dependencies.hiltCompiler
 import Dependencies.junit
 import Dependencies.kotlinCore
 import Dependencies.lifeCycle
+import Dependencies.lifecycleLiveData
+import Dependencies.lifecycleViewModel
 import Dependencies.logginInterceptor
 import Dependencies.material
 import Dependencies.navigationFragment
@@ -15,6 +21,9 @@ import Dependencies.navigationUI
 import Dependencies.okHttp
 import Dependencies.retrofit
 import Dependencies.retrofitConverter
+import Dependencies.room
+import Dependencies.roomCompiler
+import Dependencies.roomRuntime
 import ext.androidTestImplementation
 import ext.implementation
 import ext.kapt
@@ -31,6 +40,12 @@ object Dependencies {
     const val hiltPlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
     const val lifeCycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifeCycle}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
+    const val epoxyProcessor = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
+    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    const val epoxyDataBinding = "com.airbnb.android:epoxy-databinding:${Versions.epoxy}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 
     /** Testing **/
 
@@ -55,6 +70,13 @@ object Dependencies {
 
     val navigationUI by lazy { "androidx.navigation:navigation-ui-ktx:${Versions.navVersion}" }
     val navigationFragment by lazy { "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}" }
+
+    /** Room **/
+
+    const val room = "androidx.room:room-ktx:${Versions.room}"
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+
 }
 
 /** Dependencies **/
@@ -65,6 +87,12 @@ fun DependencyHandler.general() {
     implementation(lifeCycle)
     implementation(coroutines)
     implementation(kotlinCore)
+    implementation(epoxy)
+    kapt(epoxyProcessor)
+    implementation(lifecycleViewModel)
+    implementation(lifecycleLiveData)
+    implementation(epoxyDataBinding)
+    implementation(glide)
 }
 
 fun DependencyHandler.testing() {
@@ -89,4 +117,10 @@ fun DependencyHandler.di() {
 fun DependencyHandler.navigation() {
     implementation(navigationUI)
     implementation(navigationFragment)
+}
+
+fun DependencyHandler.room() {
+    implementation(room)
+    implementation(roomRuntime)
+    kapt(roomCompiler)
 }
