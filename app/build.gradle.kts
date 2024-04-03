@@ -6,6 +6,8 @@ plugins {
 
 android {
     namespace = ProjectConfig.appId
+
+    dataBinding.enable = true
 }
 
 dependencies {
@@ -16,5 +18,6 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":feature:home"))
+    implementation(project(":feature:news"))
     implementation(project(":common:network"))
 }
