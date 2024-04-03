@@ -20,6 +20,7 @@ dependencies {
     general()
     testing()
     network()
+    navigation()
 
     implementation(project(":core"))
 }

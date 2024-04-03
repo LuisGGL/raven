@@ -2,6 +2,7 @@ package com.raven.home.di
 
 import android.app.Application
 import androidx.room.Room
+import com.raven.home.data.local.dao.NewsDao
 import com.raven.home.data.local.database.NewsDataBase
 import dagger.Module
 import dagger.Provides
@@ -19,6 +20,12 @@ class DatabaseModule {
         return Room.databaseBuilder(application, NewsDataBase::class.java, "news_table")
             .fallbackToDestructiveMigration()
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideNewsDao(database: NewsDataBase): NewsDao {
+        return database.dao
     }
 
 }

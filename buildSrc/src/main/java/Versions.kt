@@ -10,6 +10,7 @@ object Versions {
     const val kotlinCore = "1.12.0"
     const val epoxy = "4.1.0"
     const val lifecycle = "2.7.0"
+    const val glide = "4.12.0"
 
     /** Testing **/
 

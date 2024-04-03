@@ -1,15 +1,19 @@
 import Dependencies.appCompat
 import Dependencies.coroutines
 import Dependencies.epoxy
+import Dependencies.epoxyDataBinding
 import Dependencies.epoxyProcessor
 import Dependencies.espressoCore
 import Dependencies.extJunit
+import Dependencies.glide
 import Dependencies.gson
 import Dependencies.hilt
 import Dependencies.hiltCompiler
 import Dependencies.junit
 import Dependencies.kotlinCore
 import Dependencies.lifeCycle
+import Dependencies.lifecycleLiveData
+import Dependencies.lifecycleViewModel
 import Dependencies.logginInterceptor
 import Dependencies.material
 import Dependencies.navigationFragment
@@ -38,7 +42,10 @@ object Dependencies {
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
     const val epoxyProcessor = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
-    const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    const val epoxyDataBinding = "com.airbnb.android:epoxy-databinding:${Versions.epoxy}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 
     /** Testing **/
 
@@ -82,7 +89,10 @@ fun DependencyHandler.general() {
     implementation(kotlinCore)
     implementation(epoxy)
     kapt(epoxyProcessor)
-    implementation(lifeCycle)
+    implementation(lifecycleViewModel)
+    implementation(lifecycleLiveData)
+    implementation(epoxyDataBinding)
+    implementation(glide)
 }
 
 fun DependencyHandler.testing() {
