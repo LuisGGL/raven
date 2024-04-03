@@ -4,6 +4,10 @@ plugins {
 
 android {
     namespace = "com.raven.core"
+
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {

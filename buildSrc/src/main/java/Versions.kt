@@ -8,6 +8,8 @@ object Versions {
     const val lifeCycle = "2.7.0"
     const val coroutines = "1.7.1"
     const val kotlinCore = "1.12.0"
+    const val epoxy = "4.1.0"
+    const val lifecycle = "2.7.0"
 
     /** Testing **/
 

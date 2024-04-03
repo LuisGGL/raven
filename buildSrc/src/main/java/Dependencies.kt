@@ -1,5 +1,7 @@
 import Dependencies.appCompat
 import Dependencies.coroutines
+import Dependencies.epoxy
+import Dependencies.epoxyProcessor
 import Dependencies.espressoCore
 import Dependencies.extJunit
 import Dependencies.gson
@@ -31,6 +33,9 @@ object Dependencies {
     const val hiltPlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
     const val lifeCycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifeCycle}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
+    const val epoxyProcessor = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
+    const val lifecycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
 
     /** Testing **/
 
@@ -65,6 +70,9 @@ fun DependencyHandler.general() {
     implementation(lifeCycle)
     implementation(coroutines)
     implementation(kotlinCore)
+    implementation(epoxy)
+    kapt(epoxyProcessor)
+    implementation(lifeCycle)
 }
 
 fun DependencyHandler.testing() {
