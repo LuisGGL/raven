@@ -1,7 +1,7 @@
 package com.raven.home.domain.usecases
 
 import com.raven.core.bases.BaseUseCase
-import com.raven.home.domain.HomeDataSource
+import com.raven.home.data.remote.HomeDataSource
 import com.raven.home.domain.mapper.GetNewsMapper
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

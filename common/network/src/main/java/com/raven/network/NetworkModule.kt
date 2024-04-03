@@ -1,5 +1,6 @@
 package com.raven.network
 
+import com.raven.network.interceptor.NewsInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,10 +17,15 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(
+        interceptor: NewsInterceptor
+    ): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-        return OkHttpClient.Builder().addInterceptor(loggingInterceptor).build()
+        return OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(interceptor)
+            .build()
     }
 
     @Provides
@@ -30,6 +36,6 @@ class NetworkModule {
     }
 
     companion object {
-        private const val BASE_URL = ""
+        private const val BASE_URL = "https://api.nytimes.com/"
     }
 }

@@ -26,4 +26,8 @@ object Versions {
     /** Navigation **/
 
     const val navVersion = "2.5.1"
+
+    /** Room **/
+
+    const val room = "2.6.1"
 }
